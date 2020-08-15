@@ -2,7 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--继承springboot的父级项目的依赖-->
+    <!--继承springboot的父级项目的依赖——SpringBoot的版本仲裁中心
+            里面配置了SpringBoot应用里面的所有依赖版本，以后导入依赖默认不需要配置版本号，
+            但是没有在它的dependencies里面管理的依赖还是要声明版本号的
+    -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -20,7 +23,13 @@
     </properties>
 
     <dependencies>
-        <!--springboot开发web项目的起步依赖-->
+        <!--spring-boot-starter-xxx：springboot将所有的功能场景都抽取出来，做成一个个starter（场景启动器），
+            只需要在项目里面引入这些starter，相关场景的所有依赖都会被导入进来。想要用什么功能，就将对应的场景启
+            动器导入pom文件中
+        -->
+        <!--spring-boot-starter-web：springboot开发web项目的起步依赖——springboot场景启动器
+            帮我们导入了web模块正常运行所依赖的组件
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
