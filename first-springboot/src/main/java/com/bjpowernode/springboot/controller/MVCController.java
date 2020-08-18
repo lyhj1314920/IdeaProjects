@@ -1,15 +1,16 @@
 package com.bjpowernode.springboot.controller;
 
 import com.bjpowernode.springboot.model.User;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import sun.awt.SunHints;
 
 /**
  * @author: tianxin
  * @create: 2020-08-13 23:09
+ *
+ * @RestController = @Controller + @ResponseBody 注解在类上表示这个类的所有方法返回的数据
+ * 都会直接返回给浏览器，如果是对象，转为json数据
  */
-@RestController // = @Controller + @ResponseBody
+@RestController
 public class MVCController {
     @RequestMapping(value="/boot/getUser" , method = RequestMethod.GET)
     public Object getUser(){

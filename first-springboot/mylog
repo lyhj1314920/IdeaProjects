@@ -1,0 +1,11 @@
+2020-08-18 23:20:29.797  INFO 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : Starting FirstSpringbootApplicationTests on DESKTOP-PUT2B97 with PID 292 (started by lying in C:\Users\tianxin\IdeaProjects\first-springboot)
+2020-08-18 23:20:29.798 DEBUG 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-08-18 23:20:29.798  INFO 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : The following profiles are active: dev
+2020-08-18 23:20:30.569  INFO 292 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-18 23:20:30.747  INFO 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : Started FirstSpringbootApplicationTests in 1.204 seconds (JVM running for 1.876)
+2020-08-18 23:20:30.906 TRACE 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : 这是trace日志
+2020-08-18 23:20:30.906 DEBUG 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : 这是debug日志
+2020-08-18 23:20:30.906  INFO 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : 这是info日志
+2020-08-18 23:20:30.906  WARN 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : 这是warn日志
+2020-08-18 23:20:30.906 ERROR 292 --- [main] c.b.s.FirstSpringbootApplicationTests    : 这是error日志
+2020-08-18 23:20:30.918  INFO 292 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

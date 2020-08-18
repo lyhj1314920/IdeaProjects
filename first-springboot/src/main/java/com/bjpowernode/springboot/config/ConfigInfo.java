@@ -1,7 +1,6 @@
 package com.bjpowernode.springboot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @create: 2020-08-14 13:13
  */
 @Component
-@ConfigurationProperties(prefix = "boot")
+//@ConfigurationProperties(prefix = "boot")
 public class ConfigInfo {
 
     private String name;

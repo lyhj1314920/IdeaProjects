@@ -1,0 +1,63 @@
+#person:
+#  age: 18
+#  boss: false
+#  maps: {k1: v1,k2: v2}
+#  lastName: 李四
+#  lists:
+#    - li si
+#    - zao liu
+#  dog:
+#    name: xao gou
+#    age: 2
+#
+#  last-name: li si    last-name 等同于 lastName
+#
+#  birthday: 2020/08/15
+server.port: 8082
+server.servlet.context-path: /first-springboot
+---
+#文档块模式 spring.profiles.active激活文档块之后，整个文档块的配置都会生效
+
+#  5、Profile
+#   1、多Profile文件
+#   2、yml支持多文档块方式 spring.profiles.active激活文档块之后，整个文档块的配置都会生效
+#   3、激活指定profile spring.profiles.active=dev
+#
+#  6、配置文件加载位置
+#   SpringBoot启动会扫描一下位置下的applicatio .properties或者application.yml文件作为SpringBoot的默认配置文件
+#     -file: 		./config/
+#     -file: 		./
+#     -classpath:	./config/
+#     -classpath:	./
+#   优先级从高到低，高优先级的配置会覆盖低优先级的配置
+#   互补配置：
+#
+#
+#   我们还可以通过spring.config.Location来改变默认的配置文件的位置。在项目打包好以后，我们可以使用命令行参
+#   数的形式，启动项目的时候，来指定配置文件的新位置指定的配置文件和默认加载的这些配置文件会共同起作用，形成互补配置
+#
+#  7、外部配置加载顺序
+#  SpringBoot也可以从以下位置加载配置，优先级从高到低，高优先级的配置会覆盖低优先级的配置，所有的配置都会形成互不配置
+#  1、命令行配置 多个配置用空格隔开   --配置项=值
+#  2、来自java：comp/env的NDI属性
+#  3、java系统属性
+#  4、操作系统环境变量
+#  5、RandomValuePropertiesSource配置的random.*属性
+#
+#  优先加载带profile的，由jar包外像jar包内进行寻找
+#  6、jar包外部的application-{profile}.properties或application.yml(带spring.profile)配置文件
+#  7、jar包内部的application-{profile}.properties或application.yml(带spring.profile)配置文件
+#  再来加载不带profile的
+#  8、jar包外部的application.properties或application.yml(不带spring.profile)配置文件
+#  9、jar包内部的application.properties或application.yml(不带spring.profile)配置文件
+#
+#  10、@Configuration注解类上的PropertySource
+#  11、通过SpringApplication.setDefaultProperties指定的默认属性
+
+
+
+---
+
+
+
+---

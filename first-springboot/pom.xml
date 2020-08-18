@@ -47,6 +47,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--导入配置文件处理器，配置文件进行绑定之后就会有提示
+            注意大小写敏感：配置文件中提示的last-name等同于lastName，javaBean中属性的大写字母在
+            经过spring-boot-configuration-processor提示后会变成 -小写字母
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
