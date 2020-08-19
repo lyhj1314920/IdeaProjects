@@ -202,6 +202,98 @@ public class MyAppConfig {
  *      SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架的时候，
  *      只要要把这个框架依赖的日志框架排除掉即可。
  *  4、日志使用
+ *      1、默认配置
+ *  //记录器
+ * 	Logger logger = LoggerFactory.getLogger(getClass());
+ *        @Test
+ *    public void contextLoads() {
+ * 		//System.out.println();
  *
+ * 		//日志的级别；
+ * 		//由低到高   trace<debug<info<warn<error
+ * 		//可以调整输出的日志级别；日志就只会在这个级别以以后的高级别生效
+ * 		logger.trace("这是trace日志...");
+ * 		logger.debug("这是debug日志...");
+ * 		//SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root级别
+ * 		logger.info("这是info日志...");
+ * 		logger.warn("这是warn日志...");
+ * 		logger.error("这是error日志...");
+ *
+ *
+ *    }
+ *
+ *    日志输出格式：
+ * 		%d表示日期时间，
+ * 		%thread表示线程名，
+ * 		%-5level：级别从左显示5个字符宽度
+ * 		%logger{50} 表示logger名字最长50个字符，否则按照句点分割。
+ * 		%msg：日志消息，
+ * 		%n是换行符
+ *     -->
+ *     %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+ *
+ *     SpringBoot修改日志的默认配置
+ *     logging.level.com.atguigu=trace
+ *     #logging.path=
+ *     # 不指定路径在当前项目下生成springboot.log日志
+ *     # 可以指定完整的路径；
+ *     #logging.file=G:/springboot.log
+ *     # 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件
+ *     logging.path=/spring/log
+ *     #  在控制台输出的日志的格式
+ *     logging.pattern.console=%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n
+ *     # 指定文件中日志输出的格式
+ *     logging.pattern.file=%d{yyyy-MM-dd} === [%thread] === %-5level === %logger{50} ==== %msg%n
+ *
+ *     2、指定配置
+ *     给类路径下放上每个日志框架自己的配置文件即可；SpringBoot就不使用他默认配置的了
+ *     logback.xml：直接就被日志框架识别了；
+ *     logback-spring.xml：日志框架无法识别此配置文件，就不直接加载日志的配置项，由SpringBoot解析日志配置，
+ *     可以使用SpringBoot的高级Profile功能
+ *     <springProfile name="staging">
+ *     <!-- configuration to be enabled when the "staging" profile is active -->
+ *   	可以指定某段配置只在某个环境下生效
+ *      </springProfile>
+ *
+ *      <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+ *         <!--
+ *         日志输出格式：
+ * 			%d表示日期时间，
+ * 			%thread表示线程名，
+ * 			%-5level：级别从左显示5个字符宽度
+ * 			%logger{50} 表示logger名字最长50个字符，否则按照句点分割。
+ * 			%msg：日志消息，
+ * 			%n是换行符
+ *         -->
+ *         <layout class="ch.qos.logback.classic.PatternLayout">
+ *             <springProfile name="dev">
+ *                 <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ---> %-5level %logger{50} - %msg%n</pattern>
+ *             </springProfile>
+ *             <springProfile name="!dev">
+ *                 <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ==== [%thread] ==== %-5level %logger{50} - %msg%n</pattern>
+ *             </springProfile>
+ *         </layout>
+ *     </appender>
+ *
+ *     如果使用logback.xml作为日志配置文件，还要使用profile功能，会有以下错误：
+ *          no applicable action for [springProfile]`
+ *
+ * 5、切换日志框架
+ *      切换为log4j2：
+ *    <dependency>
+ *             <groupId>org.springframework.boot</groupId>
+ *             <artifactId>spring-boot-starter-web</artifactId>
+ *             <exclusions>
+ *                 <exclusion>
+ *                     <artifactId>spring-boot-starter-logging</artifactId>
+ *                     <groupId>org.springframework.boot</groupId>
+ *                 </exclusion>
+ *             </exclusions>
+ *         </dependency>
+ *
+ * <dependency>
+ *   <groupId>org.springframework.boot</groupId>
+ *   <artifactId>spring-boot-starter-log4j2</artifactId>
+ * </dependency>
  */
 }
